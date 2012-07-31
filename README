@@ -1,4 +1,6 @@
++ This is throughput Enabled Rate Adaptation (TERA), a new approach to rate adaptation that accounts for interference and congestion effects implicitly but is based solely on measurements of the throughput attained at different data rates. 
 
+A much improved and better version of MAICA
 
 + You can find the implementation in 
 

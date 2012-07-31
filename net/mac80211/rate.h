@@ -144,6 +144,19 @@ static inline void rc80211_minstrel_exit(void)
 }
 #endif
 
+#ifdef CONFIG_MAC80211_RC_TERA
+extern int rc80211_tera_init(void);
+extern void rc80211_tera_exit(void);
+#else
+static inline int rc80211_tera_init(void)
+{
+	return 0;
+}
+static inline void rc80211_tera_exit(void)
+{
+}
+#endif
+
 #ifdef CONFIG_MAC80211_RC_MINSTREL_HT
 extern int rc80211_minstrel_ht_init(void);
 extern void rc80211_minstrel_ht_exit(void);

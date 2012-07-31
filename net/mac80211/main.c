@@ -1064,6 +1064,10 @@ static int __init ieee80211_init(void)
 	BUILD_BUG_ON(offsetof(struct ieee80211_tx_info, driver_data) +
 		     IEEE80211_TX_INFO_DRIVER_DATA_SIZE > sizeof(skb->cb));
 
+	ret = rc80211_tera_init();
+	if (ret)
+		return ret;
+
 	ret = rc80211_minstrel_init();
 	if (ret)
 		return ret;
@@ -1096,6 +1100,7 @@ static void __exit ieee80211_exit(void)
 	rc80211_pid_exit();
 	rc80211_minstrel_ht_exit();
 	rc80211_minstrel_exit();
+	rc80211_tera_exit();
 
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,37))
 	flush_scheduled_work();
